@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Desktop.qml</file>
+        <file>MySlider.qml</file>
+        <file>Selector.qml</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file>logo.ico</file>
+        <file>x.png</file>
+    </qresource>
+</RCC>

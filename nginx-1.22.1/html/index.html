@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DesktopSharing</title>
+
+  <link rel="stylesheet" href="css/index.css">
+
+</head>
+
+<body>
+
+  <div class="main-container" id="main-container">
+    <div class="media-container" id="media-container">
+      <div class="video-container" id="video-container">
+        <audio id="audio-stream" preload="none" playsinline></audio>
+        <video id="video-stream" preload="none" playsinline></video>
+
+        <div class="control-container" id="control-container">
+          <div class="control-buts" id="control-buts">
+            <div id="refresh-but" class="div-button"></div>
+            <div id="audio-but" class="div-button"></div>
+            <div id="debug-but" class="div-button"></div>
+            <div id="operate-but" class="div-button" onclick="openRemoting()"></div>
+            <div id="fullscreen-but" class="div-button"></div>
+          </div>
+  
+          <div class="input-box" id="input-box">
+            <input id="opt-input" type="text" placeholder="操作码" oninput="checkOpcode()">
+          </div>
+        </div>
+
+        <div class="loading-container" id="loading-container">
+          <div class="loading-anim"></div>
+          <div class="loading-text"> LOADING</div>
+        </div>     
+
+      </div>
+
+      <div class="debug-container" id="debug-container">
+        <div class="debug-text" id="debug-text"></div>
+
+        <div class="info-text" id="info-text">
+          <ul>
+            General Stats
+            <li>Peer connection state: <b id="info-con-st">connecting</b></li>
+            <li>Peer connection type: <b id="info-con-ty">unknown</b></li>
+            <li>Packets received: <b id="info-pac-re">0</b></li>
+            <li>Packets lost: <b id="info-pac-lo">0</b></li>
+            <li>Bytes received: <b id="info-byt-re">0</b></li>
+            <li>Bytes sent: <b id="info-byt-se">0</b></li>
+          </ul>
+          <ul >
+            Video Stats
+            <li>Latency: <b id="vids-lat">0 ms</b></li>
+            <li>Video: <b id="vids-typ">unknown </b></li>
+            <!-- <li>Video encoder: <b id="vids-enc"></b></li> -->
+            <!-- <li>Window size: <b>x</b></li> -->
+            <li>Video decoder: <b id="vids-dec">unknown</b></li>
+            <li>Framerate: <b id="vids-fra">0 fps</b></li>
+            <li>Bitrate: <b id="vids-bit">0 mbps</b></li>
+            <li>Available receive bandwidth: <b id="vids-arb">0</b></li>
+          </ul>
+          <ul >
+            Audio Stats
+            <li>Latency: <b id="auds-lat">0 ms</b></li>
+            <li>Codec: <b id="auds-cod">unknown</b></li>
+            <li>Bitrate: <b id="auds-bit">0 kbps</b></li>
+          </ul>
+  
+        </div>
+
+      </div>
+
+      <!-- 悬浮按钮 -->
+      <div class="hover-but" id="hover-but"> <b>0</b> </div>
+
+    </div>
+
+    <div id="select-container">
+      <div class="buts">
+        <div class="select-but">
+          <div style="width: 30px;" onclick="desktopIDSub()"> &lt; </div>
+          <div id="desk-id-text">未开启桌面</div>
+          <div style="width: 30px;" onclick="desktopIDAdd()"> &gt; </div>
+        </div>
+        <div id="av-sync-but" class="select-but" onclick="openAudioSync()">
+          <div> 音视频同步：关 </div>
+        </div>
+        <div id="start-but" class="select-but" style="background-color:#2189ff;" onclick="start()">
+          <div style="font-weight: bold;"> START </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="connecting-anim" id="connecting-anim">
+    <div class="loading-container" id="loading-connect">
+      <div class="loading-anim"></div>
+      <div class="loading-text"> CONNECTING</div>
+    </div>
+  </div>
+
+ 
+
+</body>
+
+<script type="text/javascript" src="./lib/adapter-latest.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>
+<script type="text/javascript" src="./js/debug.js"></script>
+<script type="text/javascript" src="./js/signalling.js"></script>
+<script type="text/javascript" src="./js/webrtc.js"></script>
+<script type="text/javascript" src="./js/guacamole-keyboard-selkies.js"></script>
+<script type="text/javascript" src="./js/input.js"></script>
+<script type="text/javascript" src="./js/app.js"></script>
+
+</html>
